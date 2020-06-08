@@ -23,7 +23,7 @@ const routes = [
     component: () => import('../views/Planning')
   },
   {
-    path: '/detail-record',
+    path: '/detail/:id',
     name: 'DetailRecord',
     meta: { layout: 'main' },
     component: () => import('../views/DetailRecord')
@@ -53,7 +53,7 @@ const routes = [
     component: () => import('../views/Categories')
   },
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     meta: { layout: 'main' },
     component: () => import('../views/Home')
