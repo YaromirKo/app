@@ -4,12 +4,12 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
-  },
+  }
   // {
   //   path: '/about',
   //   name: 'About',
@@ -22,6 +22,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
