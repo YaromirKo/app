@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router/router'
 import store from './store/store'
+import 'materialize-css/dist/js/materialize.min'
 
 Vue.config.productionTip = false
 
