@@ -26,9 +26,9 @@ export default {
     Navbar,
     Sidebar
   },
-  mounted () {
-    
-  },
+  // mounted () {
+  //
+  // },
   data: () => ({
     isOpen: true
   })
