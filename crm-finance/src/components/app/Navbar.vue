@@ -56,9 +56,9 @@ export default {
     this.dropdown = M.Dropdown.init(this.$refs.dropdown, { constrainWidth: true })
   },
   methods: {
-    logout () {
-      console.log('logout')
-      this.$router.push('/login?message=logout')
+    async logout () {
+      await this.$store.dispatch('logout')
+      await this.$router.push('/login?message=logout')
     }
   },
   beforeDestroy () {
