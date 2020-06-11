@@ -8,55 +8,34 @@
       </button>
     </div>
 
-    <div class="row">
-      <div class="col s12 m6 l4">
-        <div class="card light-blue bill-card">
-          <div class="card-content white-text">
-            <span class="card-title">Счет в валюте</span>
+    <loader v-if="loading"></loader>
 
-            <p class="currency-line">
-              <span>12.0 Р</span>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l8">
-        <div class="card orange darken-3 bill-card">
-          <div class="card-content white-text">
-            <div class="card-header">
-              <span class="card-title">Курс валют</span>
-            </div>
-            <table>
-              <thead>
-              <tr>
-                <th>Валюта</th>
-                <th>Курс</th>
-                <th>Дата</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <tr>
-                <td>руб</td>
-                <td>12121</td>
-                <td>12.12.12</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <div v-else class="row">
+      <home-bill :rates="currency.rates"></home-bill>
+      <home-currency></home-currency>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import HomeBill from '../components/HomeBill'
+import HomeCurrency from '../components/HomeCurrency'
 
 export default {
   name: 'Home',
   components: {
+    HomeBill,
+    HomeCurrency
+  },
+  data: () => ({
+    loading: true,
+    currency: null
+  }),
+  async mounted () {
+    this.currency = await this.$store.dispatch('fetchCurrency')
+    console.log(this.currency)
+    this.loading = false
   }
 }
 </script>
