@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     async submitHandler () {
-      console.log(this.$v)
       if (this.$v.$invalid) {
         this.$v.$touch()
         return 1
